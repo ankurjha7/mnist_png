@@ -36,7 +36,7 @@ def write_dataset(labels, data, size, rows, cols, output_dir):
     # create output directories
     output_dirs = [
         path.join(output_dir, str(i))
-        for i in range(len(set(labels)))
+        for i in range(len(set(labels))+1)
     ]
     for dir in output_dirs:
         if not path.exists(dir):
@@ -52,7 +52,7 @@ def write_dataset(labels, data, size, rows, cols, output_dir):
                 data[ (i*rows*cols + j*cols) : (i*rows*cols + (j+1)*cols) ]
                 for j in range(rows)
             ]
-            w.write(h, data_i)
+            w.write(h, numpy.transpose(data_i))
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
