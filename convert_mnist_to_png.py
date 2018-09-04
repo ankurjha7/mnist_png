@@ -8,6 +8,7 @@ from array import array
 from os import path
 
 import png
+import numpy
 
 # source: http://abel.ee.ucla.edu/cvxopt/_downloads/mnist.py
 def read(dataset = "training", path = "."):
